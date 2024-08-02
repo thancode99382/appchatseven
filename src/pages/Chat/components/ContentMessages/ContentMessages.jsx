@@ -22,21 +22,16 @@ export default function ContentMessages() {
   console.log("Messages:", messages);
 
   return (
-    <div className="h-full overflow-y-auto p-4">
-      <div className="flex flex-col-reverse">
-        {messages?.length > 0 ? (
-          messages.map((mess) => (
-            <ItemMess
-              key={mess.id}
-              uid={mess.uid}
-              text={mess.text}
-              photoURL={mess.photoURL}
-              timestamp={mess.timestamp} // Ensure timestamp is passed if sorting is needed
-            />
-          ))
-        ) : (
-          <p>No messages</p>
-        )}
+    <div className="h-full overflow-y-auto">
+      <div className="grid grid-cols-12 gap-y-2">
+        {roomselect?  messages?.map((mess) => (
+          <ItemMess
+            key={mess.id} // Ensure a unique key is used
+            uid={mess.uid}
+            text={mess.text}
+            photoURL={mess.photoURL}
+          />
+        )):""}
       </div>
     </div>
   );

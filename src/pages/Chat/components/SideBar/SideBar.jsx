@@ -4,8 +4,8 @@ import { useContext } from "react";
 import { AppContext } from "../../../../Context/AppProvider";
 
 export default function SideBar() {
-  const { users ,setIsAddRoomVisible ,rooms , setRoomSelect } = useContext(AppContext);
-  console.log(users)
+  const { users ,setIsAddRoomVisible ,roomUser , setRoomSelect } = useContext(AppContext);
+  console.log(roomUser)
   return (
     <div className="flex flex-row w-96 flex-shrink-0 bg-gray-100 p-4">
       <Menu />
@@ -44,7 +44,7 @@ export default function SideBar() {
         </div>
         <div className="mt-2">
           <div className="flex flex-col -mx-4">
-            {rooms.map((room=> <button onClick={() => setRoomSelect(room)} key={room.id}>  <PersonRoom   displayName={room.name} photoURL={room.photoURL}/></button> ))}
+            {roomUser?.map((room=> <button onClick={() => setRoomSelect(room)} key={room.id}>  <PersonRoom   displayName={room.name} photoURL={room.photoURL}/></button> ))}
             
           </div>
         </div>
