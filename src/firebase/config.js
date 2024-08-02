@@ -26,9 +26,9 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-if (window.location.host.startsWith('localhost')) {
-  connectAuthEmulator(auth, 'http://localhost:9099');
-  connectFirestoreEmulator(db, 'localhost', 8080);
-}
+// if (window.location.host.startsWith('localhost')) {
+//   connectAuthEmulator(auth, 'http://localhost:9099');
+//   connectFirestoreEmulator(db, 'localhost', 8080);
+// }
 const fbProvider = new FacebookAuthProvider();
 export { auth, db, fbProvider, signInWithPopup };
