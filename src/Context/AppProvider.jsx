@@ -28,6 +28,7 @@ export default function AppProvider({ children }) {
   
     
   
+
   useEffect(() => {
     if (!roomselect?.members || roomselect.members.length === 0) return;
    
@@ -50,7 +51,7 @@ export default function AppProvider({ children }) {
   
   
     
-  
+
 
   const users = useMemo(() => fetchUsers, [fetchUsers]);
   const rooms = useMemo(() => fetchRooms, [fetchRooms]);
@@ -68,7 +69,7 @@ export default function AppProvider({ children }) {
 
 
 useEffect(() => {
- 
+  if (!user?.uid) return;
   const collectionRef = query(
     collection(db, "rooms"),
     where("members", "array-contains", user.uid)
@@ -84,13 +85,15 @@ useEffect(() => {
   });
 
   return () => unsubscribe();
-}, [user.uid,isAddUserRoomVisible]);
+}, [user?.uid,isAddUserRoomVisible]);
   
   console.log(users);
   console.log(rooms);
   console.log(roomselect);
   console.log(usersRoom);
   console.log({roomUser});
+
+ 
   return (
     <AppContext.Provider
       value={{

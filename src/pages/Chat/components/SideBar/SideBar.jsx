@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AppContext } from "../../../../Context/AppProvider";
 
 export default function SideBar() {
-  const { users ,setIsAddRoomVisible ,roomUser , setRoomSelect } = useContext(AppContext);
+  const {  setIsAddRoomVisible ,roomUser , setRoomSelect } = useContext(AppContext);
   console.log(roomUser)
   return (
     <div className="flex flex-row w-96 flex-shrink-0 bg-gray-100 p-4">

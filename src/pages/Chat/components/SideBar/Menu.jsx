@@ -9,7 +9,7 @@ export default function Menu() {
   return (
     <div className="flex flex-col items-center py-4 flex-shrink-0 w-20 bg-indigo-800 rounded-3xl">
       {user.photoURL ? (
-          <img src={user.photoURL} className="rounded-full " alt="User Photo" />
+          <img src={user.photoURL} className="rounded-full h-14 w-14" alt="User Photo" />
       ) : (
         <a
           href="#"
